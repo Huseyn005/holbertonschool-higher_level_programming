@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def uppercase(str):
     for char in str:
         # Check if the character is lowercase using ASCII values
