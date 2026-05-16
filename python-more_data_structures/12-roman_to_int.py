@@ -12,9 +12,10 @@ def roman_to_int(roman_string):
     length = len(roman_string)
     for i in range(length):
         current_val = roman_dict.get(roman_string[i], 0)
-        # If the current numeral is smaller than the next one, 
-        # subtract it
-        if i + 1 < length and current_val < roman_dict.get(roman_string[i + 1], 0):
+        # If the current numeral is smaller
+        # than the next one, subtract it
+        if i + 1 < length and 
+        current_val < roman_dict.get(roman_string[i + 1], 0):
             total -= current_val
         else:
             total += current_val
