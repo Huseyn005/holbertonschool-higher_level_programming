@@ -10,8 +10,9 @@ def roman_to_int(roman_string):
     length = len(roman_string)
     for i in range(length):
         current_val = roman_dict.get(roman_string[i], 0)
-        # Look ahead: get the next value if we aren't at the last character
-        next_val = roman_dict.get(roman_string[i + 1], 0) if i + 1 < length else 0
+        # Slicing safely handles out-of-bounds index by returning empty string
+        next_char = roman_string[i + 1:i + 2]
+        next_val = roman_dict.get(next_char, 0)
         if current_val < next_val:
             total -= current_val
         else:
