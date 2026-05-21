@@ -1,1 +1,2 @@
-SHOW DATABESES;
+-- huseyn
+SHOW DATABASES;
