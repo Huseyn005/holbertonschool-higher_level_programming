@@ -1,0 +1,2 @@
+-- hüseyn
+SHOW TABLES;
