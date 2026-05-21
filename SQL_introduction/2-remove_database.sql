@@ -1,1 +1,2 @@
+-- comment
 DELETE DATABASE IF EXISTS;
