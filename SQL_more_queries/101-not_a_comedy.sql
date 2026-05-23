@@ -1,5 +1,4 @@
--- Lists all shows without the genre Comedy
-SELECT title
+-- HSYN
 FROM tv_shows
 WHERE id NOT IN (
     SELECT show_id
