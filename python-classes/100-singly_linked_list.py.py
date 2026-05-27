@@ -1,70 +1,53 @@
 #!/usr/bin/python3
-"""
-This module defines classes for a singly linked list data structure.
-"""
+"""Module that defines a Node and SinglyLinkedList class."""
 
 
 class Node:
-    """
-    Defines a node of a singly linked list.
-    """
+    """Defines a node of a singly linked list."""
 
     def __init__(self, data, next_node=None):
-        """
-        Initializes a new Node.
+        """Instantiate a Node with data and an optional next_node.
 
         Args:
-            data (int): The data value stored inside the node.
-            next_node (Node): The next node in the chain. Defaults to None.
+            data (int): The data stored in the node.
+            next_node (Node or None): The next node in the list.
         """
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        """
-        Retrieves the data of the node.
-
-        Returns:
-            int: The data integer.
-        """
+        """Retrieve the data of the node."""
         return self.__data
 
     @data.setter
     def data(self, value):
-        """
-        Sets the data of the node with type validation.
+        """Set the data of the node with type validation.
 
         Args:
-            value (int): The integer value to set.
+            value (int): The data value to store.
 
         Raises:
             TypeError: If value is not an integer.
         """
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
 
     @property
     def next_node(self):
-        """
-        Retrieves the next node reference.
-
-        Returns:
-            Node: The next connected Node object or None.
-        """
+        """Retrieve the next node."""
         return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
-        """
-        Sets the next node reference with type validation.
+        """Set the next node with type validation.
 
         Args:
-            value (Node): The next Node object or None.
+            value (Node or None): The next node.
 
         Raises:
-            TypeError: If value is neither None nor a Node object.
+            TypeError: If value is not a Node or None.
         """
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
@@ -72,51 +55,40 @@ class Node:
 
 
 class SinglyLinkedList:
-    """
-    Defines a singly linked list structure.
-    """
+    """Defines a singly linked list with sorted insertion."""
 
     def __init__(self):
-        """
-        Initializes an empty singly linked list with a hidden head reference.
-        """
+        """Instantiate an empty SinglyLinkedList."""
         self.__head = None
 
     def __str__(self):
-        """
-        Defines the printable representation of the linked list.
-
-        Returns:
-            str: One node data number per text line.
-        """
-        result = []
+        """Return a string of each node's data on its own line."""
+        lines = []
         current = self.__head
         while current is not None:
-            result.append(str(current.data))
+            lines.append(str(current.data))
             current = current.next_node
-        return "\n".join(result)
+        return "\n".join(lines)
 
     def sorted_insert(self, value):
-        """
-        Inserts a new Node into the correct sorted position (increasing order).
+        """Insert a new Node in the correct sorted position (ascending order).
 
         Args:
-            value (int): The value to insert as a new node.
+            value (int): The data value for the new node.
         """
         new_node = Node(value)
 
-        # Case 1: The list is completely empty, or value is smaller than head
-        if self.__head is None or self.__head.data >= value:
+        # Insert at head if list is empty or value is smallest
+        if self.__head is None or value < self.__head.data:
             new_node.next_node = self.__head
             self.__head = new_node
             return
 
-        # Case 2: Traverse to find the insertion point in the middle or at the end
+        # Traverse to find the correct insertion point
         current = self.__head
-        while (current.next_node is not None and
-               current.next_node.data < value):
+        while current.next_node is not None and current.next_node.data < value:
             current = current.next_node
 
-        # Insert the new node behind the matched boundary node
+        # Insert between current and current.next_node
         new_node.next_node = current.next_node
         current.next_node = new_node
