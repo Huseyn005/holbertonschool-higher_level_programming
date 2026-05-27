@@ -1,40 +1,29 @@
 #!/usr/bin/python3
-"""
-This module defines a class Square with a property getter and setter for size.
-"""
+"""Module that defines a Square class with a private size attribute."""
 
 
 class Square:
-    """
-    Defines a square by its size, with property validation and area computation.
-    """
+    """Defines a square with a private size attribute and validation."""
 
     def __init__(self, size=0):
-        """
-        Initializes a new Square instance.
+        """Instantiate a Square with an optional size.
 
         Args:
-            size (int): The size of the new square's sides. Defaults to 0.
+            size (int): The size of the square's side. Defaults to 0.
         """
         self.size = size
 
     @property
     def size(self):
-        """
-        Retrieves the size of the square.
-
-        Returns:
-            int: The size of the square's sides.
-        """
+        """Retrieve the size of the square."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """
-        Sets the size of the square with type and value validation.
+        """Set the size of the square with type and value validation.
 
         Args:
-            value (int): The new size value to set.
+            value (int): The new size value.
 
         Raises:
             TypeError: If value is not an integer.
@@ -47,10 +36,5 @@ class Square:
         self.__size = value
 
     def area(self):
-        """
-        Calculates the current area of the square.
-
-        Returns:
-            int: The area of the square.
-        """
+        """Calculate and return the current area of the square."""
         return self.__size ** 2
