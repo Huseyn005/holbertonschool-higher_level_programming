@@ -2,7 +2,7 @@
 How to use 7-base_geometry module
 ===================================
 
-First, import the BaseGeometry class from the module:
+First, import the BaseGeometry class:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 Instantiate the class:
@@ -12,11 +12,9 @@ Instantiate the class:
 Testing the area() method
 ----------------------------------
 The area method is not yet implemented in the base class and should raise an Exception:
-    >>> try:
-    ...     bg.area()
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [Exception] area() is not implemented
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
 
 ----------------------------------
 Testing integer_validator()
@@ -29,41 +27,28 @@ Passing normal positive integers should execute silently without throwing errors
 
 2. Invalid Type Cases (TypeError):
 Passing anything other than a strict integer should raise a TypeError:
-    >>> try:
-    ...     bg.integer_validator("name", "John")
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [TypeError] name must be an integer
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+    TypeError: name must be an integer
 
-    >>> try:
-    ...     bg.integer_validator("height", [1, 2, 3])
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [TypeError] height must be an integer
+    >>> bg.integer_validator("height", [1, 2, 3])
+    Traceback (most recent call last):
+    TypeError: height must be an integer
 
-    >>> try:
-    ...     bg.integer_validator("weight", 5.5)
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [TypeError] weight must be an integer
+    >>> bg.integer_validator("weight", 5.5)
+    Traceback (most recent call last):
+    TypeError: weight must be an integer
 
-Python booleans evaluate as integers under standard inheritance, but type() catches them:
-    >>> try:
-    ...     bg.integer_validator("is_active", True)
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [TypeError] is_active must be an integer
+    >>> bg.integer_validator("is_active", True)
+    Traceback (most recent call last):
+    TypeError: is_active must be an integer
 
 3. Invalid Value Cases (ValueError):
 Passing numbers less than or equal to 0 should raise a ValueError:
-    >>> try:
-    ...     bg.integer_validator("age", 0)
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [ValueError] age must be greater than 0
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
 
-    >>> try:
-    ...     bg.integer_validator("distance", -4)
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [ValueError] distance must be greater than 0
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+    ValueError: distance must be greater than 0
