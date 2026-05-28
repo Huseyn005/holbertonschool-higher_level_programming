@@ -7,7 +7,7 @@ instance tracking, customizable print symbols, and a comparison method.
 
 
 class Rectangle:
-    """Defines a rectangle with custom representations and comparison utility."""
+    """Defines a rectangle with custom representations"""
 
     # Public class attributes
     number_of_instances = 0
