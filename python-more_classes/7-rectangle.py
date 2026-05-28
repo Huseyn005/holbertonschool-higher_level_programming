@@ -89,7 +89,7 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
 
-        # Cast print_symbol to string to safely handle non-string types (e.g. lists)
+        # Cast print_symbol to string to safely handle non-string types.
         symbol = str(self.print_symbol)
         rect_lines = [symbol * self.__width for _ in range(self.__height)]
         return "\n".join(rect_lines)
