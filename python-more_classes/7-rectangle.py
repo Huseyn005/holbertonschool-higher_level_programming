@@ -7,7 +7,7 @@ instance tracking, and customizable print symbols.
 
 
 class Rectangle:
-    """Defines a rectangle with custom representations and instance tracking."""
+    """Defines a rectangle with custom representations"""
 
     # Public class attributes
     number_of_instances = 0
