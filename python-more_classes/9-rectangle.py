@@ -8,7 +8,7 @@ and an alternative constructor for creating squares.
 
 
 class Rectangle:
-    """Defines a rectangle with custom properties, metrics, and a factory method."""
+    """Defines a rectangle with custom properties, metrics."""
 
     # Public class attributes
     number_of_instances = 0
