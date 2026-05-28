@@ -43,7 +43,7 @@ class Rectangle:
     @property
     def height(self):
         """Retrieves the height of the rectangle."""
-        return self.__tensor = self.__height
+        return self.__height
 
     @height.setter
     def height(self, value):
